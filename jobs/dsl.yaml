@@ -1,0 +1,7 @@
+build:
+  type: 1
+  flavor: release
+
+compile:
+  type: 2
+  flavor: debug
