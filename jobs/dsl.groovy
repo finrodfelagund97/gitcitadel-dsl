@@ -3,7 +3,7 @@ import org.yaml.snakeyaml.Yaml
 // Function to read YAML file
 def readYamlFile(String filePath) {
     def yaml = new Yaml()
-    String fileContents = new File(filePath).text
+    String fileContents = readFileFromWorkspace(filePath)
     def data = yaml.load(fileContents)
     return data
 }
