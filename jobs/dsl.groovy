@@ -3,13 +3,13 @@ import org.yaml.snakeyaml.Yaml
 // Function to read YAML file
 def readYamlFile(String filePath) {
     def yaml = new Yaml()
-    String fileContents = readFile(filePath)
+    String fileContents = new File(filePath).text
     def data = yaml.load(fileContents)
     return data
 }
 
-def yamlFilePath = 'jobs/dsl.yaml'
-def yamlData = readYamlFile(yamlFilePath)
+String yamlFilePath = 'jobs/dsl.yaml'
+yamlData = readYamlFile(yamlFilePath)
 
 yamlData.each { key, value ->
     println("${key}: ${value}")
