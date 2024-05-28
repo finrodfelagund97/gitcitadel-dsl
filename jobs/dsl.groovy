@@ -1,13 +1,10 @@
-import groovy.yaml.YamlSlurper
-
-def version = GroovySystem.version
-println "Version: ${version}"
+import utilities.configuration.ReadYaml
 
 def yaml_script = "jobs/dsl.yaml"
-def ys = new YamlSlurper()
-yamlData = ys.parseText(new File(yaml_script).text)
+ReadYaml readYaml = new ReadYaml()
+def projectConfigList = readYaml.readJenkinsYaml(yaml_script)
 
 
-yamlData.each { key, value ->
+projectConfigList.each { key, value ->
     println("${key}: ${value}")
 }
