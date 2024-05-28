@@ -8,7 +8,7 @@ def readYamlFile(String filePath) {
     return data
 }
 
-def yamlFilePath = "jobs/dsl.yaml"
+def yamlFilePath = 'jobs/dsl.yaml'
 def yamlData = readYamlFile(yamlFilePath)
 
 yamlData.each { key, value ->
