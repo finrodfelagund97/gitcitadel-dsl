@@ -1,10 +1,10 @@
-import utilities.configuration.ReadYaml
+import groovy.yaml.YamlSlurper
 
 def yaml_script = "jobs/dsl.yaml"
-ReadYaml readYaml = new ReadYaml()
-def projectConfigList = readYaml.readJenkinsYaml(yaml_script)
+def ys = new YamlSlurper()
+yamlData = ys.parseText(new File(yaml_script).text)
 
 
-projectConfigList.each { key, value ->
+yamlData.each { key, value ->
     println("${key}: ${value}")
 }
