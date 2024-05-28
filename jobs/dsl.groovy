@@ -8,10 +8,9 @@ def readYamlFile(String filePath) {
     return data
 }
 
-String currentDir = new File(".").getAbsolutePath()
-println currentDir
+def workSpace = build.getEnvironment(listener).get('WORKSPACE')
 
-def yamlFilePath = 'jobs/dsl.yaml'
+def yamlFilePath = "$workSpace/jobs/dsl.yaml"
 def yamlData = readYamlFile(yamlFilePath)
 
 yamlData.each { key, value ->
