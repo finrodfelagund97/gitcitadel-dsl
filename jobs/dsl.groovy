@@ -1,9 +1,17 @@
-import groovy.yaml.YamlSlurper
+import org.yaml.snakeyaml.Yaml
+import java.nio.file.Files
+import java.nio.file.Paths
 
-def yaml_script = "jobs/dsl.yaml"
-def ys = new YamlSlurper()
-yamlData = ys.parseText(new File(yaml_script).text)
+// Function to read YAML file
+def readYamlFile(String filePath) {
+    def yaml = new Yaml()
+    def fileContent = new String(Files.readAllBytes(Paths.get(filePath)))
+    def data = yaml.load(fileContent)
+    return data
+}
 
+def yamlFilePath = 'jobs/dsl.yaml'
+def yamlData = readYamlFile(yamlFilePath)
 
 yamlData.each { key, value ->
     println("${key}: ${value}")
