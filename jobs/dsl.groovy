@@ -8,3 +8,9 @@ yamlData = ys.parseText(new File(yaml_script).text)
 yamlData.each { key, value ->
     println("${key}: ${value}")
 }
+
+job('example') {
+  steps {
+    shell('echo Hello World!')
+  }
+}
