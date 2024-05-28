@@ -8,6 +8,9 @@ def readYamlFile(String filePath) {
     return data
 }
 
+String currentDir = new File(".").getAbsolutePath()
+println currentDir
+
 def yamlFilePath = 'jobs/dsl.yaml'
 def yamlData = readYamlFile(yamlFilePath)
 
