@@ -1,12 +1,10 @@
 import org.yaml.snakeyaml.Yaml
-import java.nio.file.Files
-import java.nio.file.Paths
 
 // Function to read YAML file
 def readYamlFile(String filePath) {
     def yaml = new Yaml()
-    def fileContent = new String(Files.readAllBytes(Paths.get(filePath)))
-    def data = yaml.load(fileContent)
+    String fileContents = new File('/path/to/file').text
+    def data = yaml.load(fileContents)
     return data
 }
 
