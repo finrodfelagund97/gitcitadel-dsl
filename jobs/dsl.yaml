@@ -1,7 +1,28 @@
 build:
-  type: 1
-  flavor: release
-
-compile:
-  type: 2
-  flavor: debug
+  ubuntu-focal:
+    aedile-ndk-focal
+    aedile-c-ndk-focal
+  ubuntu-jammy:
+    aedile-ndk-jammy
+    aedile-c-ndk-jammy
+  ubuntu-noble:
+    aedile-ndk-noble
+    aedile-c-ndk-noble
+  debian-buster:
+    aedile-ndk-buster
+    aedile-c-ndk-buster
+  debian-bullseye:
+    aedile-ndk-bullseye
+    aedile-c-ndk-bullseye
+  debian-bookworm:
+    aedile-ndk-bookworm
+    aedile-c-ndk-bookworm
+docker:
+  ubuntu:
+    docker-ubuntu-focal
+    docker-ubuntu-jammy
+    docker-ubuntu-noble
+  debian:
+    docker-debian-buster
+    docker-debian-bullseye
+    docker-debian-bookworm
