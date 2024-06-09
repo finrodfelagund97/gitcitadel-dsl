@@ -1,28 +1,26 @@
 build:
   ubuntu-focal:
-    aedile-ndk-focal
-    aedile-c-ndk-focal
+    aedile-ndk-ubuntu-focal
+    aedile-c-ndk-ubuntu-focal
   ubuntu-jammy:
-    aedile-ndk-jammy
-    aedile-c-ndk-jammy
+    aedile-ndk-ubuntu-jammy
+    aedile-c-ndk-ubuntu-jammy
   ubuntu-noble:
-    aedile-ndk-noble
-    aedile-c-ndk-noble
+    aedile-ndk-ubuntu-noble
+    aedile-c-ndk-ubuntu-noble
   debian-buster:
-    aedile-ndk-buster
-    aedile-c-ndk-buster
+    aedile-ndk-debian-buster
+    aedile-c-ndk-debian-buster
   debian-bullseye:
-    aedile-ndk-bullseye
-    aedile-c-ndk-bullseye
+    aedile-ndk-debian-bullseye
+    aedile-c-ndk-debian-bullseye
   debian-bookworm:
-    aedile-ndk-bookworm
-    aedile-c-ndk-bookworm
+    aedile-ndk-debian-bookworm
+    aedile-c-ndk-debian-bookworm
 docker:
-  ubuntu:
-    docker-ubuntu-focal
-    docker-ubuntu-jammy
-    docker-ubuntu-noble
-  debian:
-    docker-debian-buster
-    docker-debian-bullseye
-    docker-debian-bookworm
+  ubuntu-focal-docker
+  ubuntu-jammy-docker
+  ubuntu-noble-docker
+  debian-buster-docker
+  debian-bullseye-docker
+  debian-bookworm-docker
