@@ -8,6 +8,18 @@ def readYamlFile(String filePath) {
     return data
 }
 
+
+def getScripts(_context) {
+    _context.shell(
+        """
+        [ -e "jobs.tar" ] && rm -f "jobs.tar"
+        [ -d "jobs" ] && rm -rf "jobs/"
+        wget --no-check-certificate --auth-no-challenge --http-user=finrod --http-password=11ff67d0c319d7d365b5bd629eec1d8f1c https://jenkins.gitcitadel.eu/job/__seed_jobs/lastSuccessfulBuild/artifact/jobs.tar
+        tar -xvf jobs.tar
+        """
+    )
+}
+
 def createJobs(yamlData) {
     yamlData.each { key, value ->
         if (value.getClass() == String) {
@@ -17,6 +29,7 @@ def createJobs(yamlData) {
                 println("inside createJobs function: creating ${jobname} job")
                 job(jobname) {
                     steps {
+                        getScripts(delegate);
                         shell("exec jobs/scripts/${jobname}/build.sh")
                     }
                 }
