@@ -29,7 +29,7 @@ def createJobs(yamlData) {
                 println("inside createJobs function: creating ${jobname} job")
                 job(jobname) {
                     steps {
-                        getScripts(delegate);
+                        getScripts(delegate)
                         shell("exec jobs/scripts/${jobname}/build.sh")
                     }
                 }
@@ -64,45 +64,45 @@ def addView(_context, _name, _content) {
 }
 
 def addNestedView(_context, _name, _content) {
-    println("***** Adding nested view: ${_name} *****");
-    String __defaultView = "";
+    println("***** Adding nested view: ${_name} *****")
+    String __defaultView = ""
     _context.nestedView(_name) {
         views {
             _content.each { key, value ->
                 // get name of default view
                 if (__defaultView == "")
                 {
-                    println("***** Default view ${key} for nested view: ${_name} *****");
-                    __defaultView = key;
+                    println("***** Default view ${key} for nested view: ${_name} *****")
+                    __defaultView = key
 
                 }
 
                 // single view
                 if (value.getClass() == String) {
-                    addView(delegate, key, value);
+                    addView(delegate, key, value)
                 }
                 // nested view
                 else {
-                    addNestedView(delegate, key, value);
+                    addNestedView(delegate, key, value)
                 }
             }
         }
         configure { nview ->
-            nview / defaultView(__defaultView); //
+            nview / defaultView(__defaultView) //
         }
     }
 }
 
-String yamlFilePath = "jobs/dsl.yaml";
-yamlData = readYamlFile(yamlFilePath);
+String yamlFilePath = "jobs/dsl.yaml"
+yamlData = readYamlFile(yamlFilePath)
 
-def yamlType = yamlData.getClass();
-createJobs(yamlData);
+def yamlType = yamlData.getClass()
+createJobs(yamlData)
 
 
 yamlData.each { key, value ->
     if (value.getClass() == String)
-        addView(delegate, key, value);
+        addView(delegate, key, value)
     else
-        addNestedView(delegate, key, value);
+        addNestedView(delegate, key, value)
 }
