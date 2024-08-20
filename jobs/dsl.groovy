@@ -14,7 +14,7 @@ def getScripts(_context) {
         """
         [ -e "jobs.tar" ] && rm -f "jobs.tar"
         [ -d "jobs" ] && rm -rf "jobs/"
-        wget --no-check-certificate --auth-no-challenge --http-user=finrod --http-password=11ff67d0c319d7d365b5bd629eec1d8f1c https://jenkins.gitcitadel.eu/job/__seed_jobs/lastSuccessfulBuild/artifact/jobs.tar
+        wget --no-check-certificate --auth-no-challenge --http-user=finrod --http-password=11ccc0b34a5fc08705e571d09c4333bb26 https://jenkins.gitcitadel.eu/job/__seed_job/lastSuccessfulBuild/artifact/jobs.tar
         tar -xvf jobs.tar
         """
     )
