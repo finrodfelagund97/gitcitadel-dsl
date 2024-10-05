@@ -12,10 +12,10 @@ def readYamlFile(String filePath) {
 def getScripts(_context) {
     _context.shell(
         """
-        [ -e "jobs.tar" ] && rm -f "jobs.tar"
-        [ -d "jobs" ] && rm -rf "jobs/"
-        wget --no-check-certificate --auth-no-challenge --http-user=finrod --http-password=11ccc0b34a5fc08705e571d09c4333bb26 https://jenkins.gitcitadel.eu/job/__seed_job/lastSuccessfulBuild/artifact/jobs.tar
-        tar -xvf jobs.tar
+        [ -e "jenkins.tar" ] && rm -f "jenkins.tar"
+        [ -d "jenkins" ] && rm -rf "jobs/"
+        wget --no-check-certificate --auth-no-challenge --http-user=finrod --http-password=11acc31c4fe077eaba6253daa6b6f8e7b4 https://jenkins.gitcitadel.eu/job/__seed_job/lastSuccessfulBuild/artifact/jenkins.tar
+        tar -xvf jenkins.tar
         """
     )
 }
